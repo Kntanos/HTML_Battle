@@ -1,3 +1,5 @@
+
+
 describe Player do
   subject(:charlotte) { Player.new('Charlotte') }
   subject(:mittens) { Player.new('Mittens') }
@@ -14,12 +16,6 @@ describe Player do
     end
   end
 
-  describe '#attack' do
-    it 'damages the player' do
-      expect(mittens).to receive(:receive_damage)
-      charlotte.attack(mittens)
-    end
-  end
 
   describe '#receive_damage' do
     it 'reduces the player hit points' do

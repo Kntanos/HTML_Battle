@@ -8,27 +8,29 @@ feature 'Enter names' do
   end
 end
 
-feature "View Hit points" do
-  scenario 'see Player 2 Hit points' do
-    sign_in_and_play
+  feature "View Hit points" do
+    scenario 'see Player 2 Hit points' do
+      sign_in_and_play
 
-    expect(page).to have_content 'Mittens: 60HP'
+      expect(page).to have_content 'Mittens: 60HP'
+    end
   end
-end
 
-feature "Attacking" do
-  scenario 'attacking Player 2' do
-    sign_in_and_play
-    click_button 'Attack!'
-
-    expect(page).to have_content 'Charlotte attacks Mittens'
-  end
-  
-    scenario 'reduce Player 2 HP by 10' do
+  feature "Attacking" do
+    
+    scenario 'attacking Player 2' do
       sign_in_and_play
       click_button 'Attack!'
-      #click_link 'OK'
-      expect(page).not_to have_content 'Mittens: 60HP'
-      expect(page).to have_content 'Mittens: 50HP'
+  
+      expect(page).to have_content 'Charlotte attacks Mittens'
     end
+    
+      scenario 'reduce Player 2 HP by 10' do
+        sign_in_and_play
+        click_button 'Attack!'
+        #click_link 'OK'
+        expect(page).not_to have_content 'Mittens: 60HP'
+        expect(page).to have_content 'Mittens: 50HP'
+      end
+ 
 end
